@@ -14,6 +14,8 @@ namespace SystemElementCore.Controllers
     {
         private IElementRepository elementRepository;
         private String path;
+        private List<Element> elements = null;
+
         public HomeController(IElementRepository repository)
         {
             elementRepository = repository;
@@ -57,12 +59,11 @@ namespace SystemElementCore.Controllers
         }
 
 
-        private IEnumerable<string> readRootFolder()
+        private void readRootFolder()
         {
             path = ".\\root";
-            IEnumerable<string> listDirectories = Directory.EnumerateDirectories(path);
+            ProcessDirectory(path);
 
-            return listDirectories;
             //var temp = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             //IFileProvider provider = new PhysicalFileProvider(path);
             //IDirectoryContents contents = provider.GetDirectoryContents(""); // the applicationRoot contents
@@ -74,9 +75,49 @@ namespace SystemElementCore.Controllers
             //}
 
         }
-        private void ProcessDirectory(string targetDirectory)
+        private void ProcessDirectory(string rootDirectory)
         {
+            IEnumerable<string> listDirectories = Directory.EnumerateDirectories(rootDirectory);
+            foreach (String element in listDirectories)
+            {
+                ProcessDirectory(element);
+            }
+            Element rootElement = new Element();
 
         }
+        private Element makeElement(string rootDirectory, string currentDirectory)
+        {
+            Element element = new Element();
+
+            return element;
+        }
+        /*
+         
+         необходимо сгенерированные элементам выдать id
+
+        var myBookings = myExistingListOfTen.Select((b, index) => new Booking
+                 {
+                     Id = index + 1, 
+                     From=b.From, 
+                     To=b.To
+                 });
+
+        это даст возможность генерить id
+        чтобы сохранить исп 
+        Create procedure Insert_ListItem 
+
+        @Name data_type 
+        AS 
+        Set nocount on 
+        Begin 
+        If Not Exists(Select Count(1) From YouTable where Name =@Name)
+        BEGIN
+        INSERT INTO TABLES vALUES (@Name) 
+        END
+        End Set Nocount off
+         
+         
+         
+         */
     }
 }

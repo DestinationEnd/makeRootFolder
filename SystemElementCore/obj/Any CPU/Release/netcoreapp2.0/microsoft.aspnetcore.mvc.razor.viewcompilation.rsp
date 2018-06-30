@@ -1,0 +1,8 @@
+C:\Users\User111\source\repos\SystemElementCore\SystemElementCore
+--output-path=obj\Any CPU\Release\netcoreapp2.0\
+--application-name=SystemElementCore
+--content-root=C:\Users\User111\source\repos\SystemElementCore\SystemElementCore
+--file=C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\Views\Home\Index.cshtml
+--file=C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\Views\Shared\Error.cshtml
+--file=C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\Views\Shared\_Layout.cshtml
+--file=C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\Views\_ViewStart.cshtml

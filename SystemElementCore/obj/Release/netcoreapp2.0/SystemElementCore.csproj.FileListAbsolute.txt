@@ -9,3 +9,14 @@ C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\obj\Release\ne
 C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.AssemblyInfo.cs
 C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.dll
 C:\Users\User111\source\repos\SystemElementCore\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.pdb
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\bin\Release\netcoreapp2.0\SystemElementCore.deps.json
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\bin\Release\netcoreapp2.0\SystemElementCore.runtimeconfig.json
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\bin\Release\netcoreapp2.0\SystemElementCore.runtimeconfig.dev.json
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\bin\Release\netcoreapp2.0\SystemElementCore.dll
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\bin\Release\netcoreapp2.0\SystemElementCore.pdb
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.csprojResolveAssemblyReference.cache
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.csproj.CoreCompileInputs.cache
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.AssemblyInfoInputs.cache
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.AssemblyInfo.cs
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.dll
+C:\Users\User111\Desktop\makeRootFolder\SystemElementCore\obj\Release\netcoreapp2.0\SystemElementCore.pdb

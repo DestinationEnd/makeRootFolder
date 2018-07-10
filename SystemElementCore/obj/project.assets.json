@@ -13129,12 +13129,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\User111\\Desktop\\SystemElementCore\\SystemElementCore\\SystemElementCore\\SystemElementCore.csproj",
+      "projectUniqueName": "C:\\Users\\User111\\Desktop\\makeRootFolder\\SystemElementCore\\SystemElementCore.csproj",
       "projectName": "SystemElementCore",
-      "projectPath": "C:\\Users\\User111\\Desktop\\SystemElementCore\\SystemElementCore\\SystemElementCore\\SystemElementCore.csproj",
+      "projectPath": "C:\\Users\\User111\\Desktop\\makeRootFolder\\SystemElementCore\\SystemElementCore.csproj",
       "packagesPath": "C:\\Users\\User111\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User111\\Desktop\\SystemElementCore\\SystemElementCore\\SystemElementCore\\obj\\",
+      "outputPath": "C:\\Users\\User111\\Desktop\\makeRootFolder\\SystemElementCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

@@ -7,7 +7,7 @@
     @foreach (var element in ViewBag.elements)
     {
         <li>
-            <a href="@ViewBag.parentElement.Url/@element.Url">@element.Url</a>
+            <a href="@element.Url">@element.Url</a>
         </li>
     }
 </ul>

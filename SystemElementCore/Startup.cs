@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +31,8 @@ namespace SystemElementCore
             services.AddDbContext<ElementDBContext>(options => options.UseSqlServer(connection));
             services.AddTransient<IElementRepository, ElementRepository>();
             services.AddTransient<HomeController>();
+            services.AddTransient<UrlConstraint>();
+
             services.AddMvc();
         }
 
@@ -48,10 +53,24 @@ namespace SystemElementCore
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                //routes.MapRoute(
+                //    name: "default",
+                //    template: "{controller=Home}/{action=Index}/{id?}");
+
+
+
             });
+            var myRouteHandler = new RouteHandler(Handle);
+            var routeBuilder = new RouteBuilder(app, myRouteHandler);
+            routeBuilder.MapRoute("default",
+                "{controller}/{action}/{id?}",
+                null,
+                new { myConstraint = new UrlConstraint(HttpContext.RequestServices.GetService<IElementRepository>()) }
+            );
+        }
+        private async Task Handle(HttpContext context)
+        {
+            await context.Response.WriteAsync("Hello ASP.NET Core!");
         }
     }
 }

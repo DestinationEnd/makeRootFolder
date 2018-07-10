@@ -14,20 +14,25 @@ namespace SystemElementCore.Controllers
     {
         private IElementRepository elementRepository;
         private String path;
-        private List<Element> elements = null;
 
         public HomeController(IElementRepository repository)
         {
             elementRepository = repository;
+            repository.TruncateElements();
         }
         [HttpGet]
         public IActionResult Index(string permalink = null)
         {
-            IEnumerable<string> listDirectories = readRootFolder();
-            if (listDirectories.Count() > 0)
+            if (permalink == null)
             {
-                ViewBag.listDirectories = listDirectories;
-                return View("~/Views/ShoDir/showDirs.cshtml");
+                IEnumerable<string> listDirectories = new List<string>();
+                readRootFolder();
+
+                if (listDirectories.Count() > 0)
+                {
+                    ViewBag.listDirectories = listDirectories;
+                    return View("~/Views/ShoDir/showDirs.cshtml");
+                }
             }
             Element parentElement = null;
 
@@ -58,37 +63,27 @@ namespace SystemElementCore.Controllers
             return View();
         }
 
-
         private void readRootFolder()
         {
             path = ".\\root";
-            ProcessDirectory(path);
-
-            //var temp = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //IFileProvider provider = new PhysicalFileProvider(path);
-            //IDirectoryContents contents = provider.GetDirectoryContents(""); // the applicationRoot contents
-            //IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under applicationRoot
-
-            //foreach (string file in Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
-            //{
-            //    int a = 10;
-            //}
-
+            Element parentElement = makeElement(null, path);
+            ProcessDirectory(parentElement.Id, path);
         }
-        private void ProcessDirectory(string rootDirectory)
+        private void ProcessDirectory(int parentId, string rootDirectory)
         {
             IEnumerable<string> listDirectories = Directory.EnumerateDirectories(rootDirectory);
             foreach (String element in listDirectories)
             {
-                ProcessDirectory(element);
+                Element temp = makeElement(parentId, element);
+                ProcessDirectory(temp.Id, element);
             }
-            Element rootElement = new Element();
-
         }
-        private Element makeElement(string rootDirectory, string currentDirectory)
+        private Element makeElement(int? parentId, string currentDirectory)
         {
             Element element = new Element();
-
+            element.Url = currentDirectory;
+            element.ParentId = parentId;
+            element.Id = elementRepository.StoreElement(element);
             return element;
         }
         /*

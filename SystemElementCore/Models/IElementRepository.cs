@@ -11,5 +11,7 @@ namespace SystemElementCore.Models
         Element findParentElementByPermalink(string permalink);
         Element findNullParentId();
         IEnumerable<Element> findParentId(int parentID);
+        int StoreElement(Element element);
+        void TruncateElements();
     }
 }
